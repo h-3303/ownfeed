@@ -8,6 +8,7 @@
     "e2e": "node test/e2e/flow.mjs",
     "lint": "web-ext lint",
     "firefox": "web-ext run --start-url https://www.youtube.com/",
-    "build": "web-ext build --overwrite-dest --ignore-files test site package.json vercel.json README.md LICENSE"
+    "sign": "tools/sign.sh",
+    "build": "web-ext build --overwrite-dest --ignore-files test site tools package.json vercel.json amo-metadata.json README.md LICENSE"
   }
 }

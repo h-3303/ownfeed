@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "en-US": "A working \"Not interested\" for signed-out YouTube: hide videos, block channels and topics, follow channels locally, and get a home feed ranked on your own device. No Google account, no server, nothing leaves the browser."
+  },
+  "categories": ["privacy-security", "photos-music-videos"],
+  "homepage": { "en-US": "https://ownfeed-sable.vercel.app" },
+  "support_url": { "en-US": "https://github.com/h-3303/ownfeed/issues" },
+  "version": {
+    "license": "GPL-3.0-or-later",
+    "release_notes": { "en-US": "First release." }
+  }
+}
