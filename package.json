@@ -1,0 +1,13 @@
+{
+  "name": "ownfeed",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A YouTube home feed and a working \"Not interested\" without a Google account.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "e2e": "node test/e2e/flow.mjs",
+    "lint": "web-ext lint",
+    "firefox": "web-ext run --start-url https://www.youtube.com/",
+    "build": "web-ext build --overwrite-dest --ignore-files test site package.json vercel.json README.md LICENSE"
+  }
+}

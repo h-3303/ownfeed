@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ownfeed · a YouTube feed you shape, with no account</title>
+<meta name="description" content="A browser extension for signed-out YouTube: a Not interested button that sticks, channel and topic blocks, local follows, and a home feed ranked on your own device. Nothing leaves the browser.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ownfeed">
+<meta property="og:title" content="Ownfeed · a YouTube feed you shape, with no account">
+<meta property="og:description" content="Not interested, without signing in. Blocks, local follows and a home feed ranked on your own device. Firefox and Chromium.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="dtw.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141412'/%3E%3Cpath d='M9 9l14 14M23 9L9 23' stroke='%23e9e4d6' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+  /* Page furniture only: the system's tokens and classes do the rest. */
+  html { background: var(--dtw-paper-2nd); }
+  body { margin: 0; padding: 28px 16px 56px; color: var(--dtw-toner); }
+  .page { max-width: 720px; margin: 0 auto; }
+  .sheet { padding: 30px 28px 34px; }
+  .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .pre { white-space: pre; overflow-x: auto; margin: 0; font-size: 12px; line-height: 1.55; }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .dtw-sheet--black a { color: var(--dtw-paper); }
+  .stack > * + * { margin-top: 22px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; align-items: start; }
+  .black-band { padding: 26px 24px 30px; margin: 30px -28px -34px; }
+  .steps .dtw-x-list__item { font-size: 12.5px; }
+  .steps b { font-weight: 700; letter-spacing: 0.03em; }
+  .facts { font: 400 12px/1.5 var(--dtw-font-typewriter); margin: 0; padding: 0; list-style: none; }
+  .facts li { display: grid; grid-template-columns: 170px 1fr; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--dtw-grey-2); }
+  .doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .door { border: 1px solid var(--dtw-toner); padding: 12px 12px 14px; background: var(--dtw-paper); }
+  .door__name { font: 400 11px/1.3 var(--dtw-font-typewriter); letter-spacing: 0.14em; text-transform: uppercase; }
+  .door__cmd { font: 400 12px/1.4 var(--dtw-font-typewriter); margin: 8px 0 6px; }
+  .door__for { font-size: 12px; line-height: 1.45; margin: 0; }
+  .rot-1 { transform: rotate(-0.8deg); } .rot-2 { transform: rotate(0.6deg); } .rot-3 { transform: rotate(-1.2deg); } .rot-4 { transform: rotate(1.1deg); }
+  @media (max-width: 640px) {
+    .sheet { padding: 22px 16px 26px; }
+    .two, .doors { grid-template-columns: 1fr; }
+    .black-band { margin: 26px -16px -26px; padding: 22px 16px 26px; }
+    .dtw-masthead__title { font-size: 34px !important; }
+    .facts li { grid-template-columns: 1fr; gap: 2px; }
+    .dtw-plate__spine { display: none; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+<div class="dtw-sheet dtw-sheet--paper dtw-xerox sheet">
+
+  <div class="row">
+    <div class="dtw-masthead dtw-masthead--bar" style="transform: rotate(-0.6deg)">
+      <div class="dtw-masthead__title">Ownfeed</div>
+      <div class="dtw-masthead__tagline">SIGNED-OUT YOUTUBE · NOT INTERESTED · A FEED OF YOUR OWN</div>
+    </div>
+    <span class="dtw-folio" style="transform: rotate(-4deg); margin-top: 6px">No. 1 · MMXXVI</span>
+  </div>
+
+  <div class="stack" style="margin-top: 26px">
+    <h1 class="dtw-headline" style="font-size: 26px; max-width: 600px">
+      TELL YOUTUBE WHAT YOU DO NOT WANT. WITHOUT TELLING IT WHO YOU ARE.
+    </h1>
+
+    <p class="dtw-body" style="font-size: 13.5px; max-width: 600px">
+      <span class="dtw-body__dropcap">S</span>igned out, YouTube gives you no way to say <em>not this</em>. The menu item is
+      gone, the Subscribe button asks for an account, and the home page is blank until its cookies have something on
+      you. Ownfeed is a browser extension that puts those controls back and keeps them on your side of the wire. Every
+      video gets a ✕. Press it and the video is gone for good; block its channel or a word from its title in the same
+      breath. What you hide and what you watch train a small model that ranks a home feed built from channels you
+      follow locally and from what YouTube relates to the things you watched. All of it lives in the extension's
+      storage. There is no server, no account and no telemetry; YouTube sees ordinary signed-out page requests.
+    </p>
+
+    <div class="dtw-ornament dtw-ornament--diamond"><div class="dtw-ornament__line"></div><div class="dtw-ornament__diamond"></div><div class="dtw-ornament__line"></div></div>
+
+    <div>
+      <div class="dtw-bar-heading dtw-bar-heading--typewriter rot-1">THREE WAYS TO SAY NO</div>
+      <div class="doors" style="margin-top: 14px">
+        <div class="door" style="transform: rotate(-0.5deg)">
+          <div class="door__name">The video</div>
+          <div class="door__cmd">✕</div>
+          <p class="door__for">Hidden everywhere, for good. Undo is on the panel that replaces it and on the settings page.</p>
+        </div>
+        <div class="door" style="transform: rotate(0.4deg)">
+          <div class="door__name">The channel</div>
+          <div class="door__cmd">Block channel: …</div>
+          <p class="door__for">Offered after every ✕, and marked in red once you have hidden two of its videos.</p>
+        </div>
+        <div class="door" style="transform: rotate(-0.3deg)">
+          <div class="door__name">The topic</div>
+          <div class="door__cmd">Block topic: word</div>
+          <p class="door__for">Words from the title, or a phrase of your own. Whole words only: <em>art</em> leaves <em>party</em> alone.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="dtw-bar-heading dtw-bar-heading--typewriter rot-2">HOW IT BEHAVES</div>
+        <div class="dtw-x-list steps" style="margin-top: 14px">
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>EVERY LIST.</b> Home, search, the sidebar beside a video, channel pages, and Ownfeed's own cards carry the same ✕.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>IT LEARNS, SLOWLY.</b> One ✕ only nudges look-alikes down. Holding a video back takes two dislikes sharing a couple of words, four on one word, or two on one channel.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>IT SHOWS ITS WORK.</b> Held-back videos are counted under the feed with the words that held them. <em>This one is fine</em> corrects the model.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>WATCHING COUNTS FOR.</b> Thirty seconds of a video weighs its words and channel the other way.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>FOLLOW LOCALLY.</b> A button under every video and on channel pages. New uploads arrive by the channel's public RSS.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>TWO HOME VIEWS.</b> YouTube's cookie-keyed suggestions with your blocks applied, or <em>My feed</em>. A switch at the foot of the page.</span></div>
+          <div class="dtw-x-list__item"><span class="dtw-x-list__x">X</span><span><b>BRING YOUR LIST.</b> Subscriptions import from Google Takeout, OPML, NewPipe and FreeTube. Everything exports as one JSON file.</span></div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="dtw-plate" style="height: 252px; transform: rotate(0.7deg)">
+          <div class="dtw-plate__fill dtw-hatch dtw-tone" style="background-color: var(--dtw-grey-2); opacity: 0.9"></div>
+          <div class="dtw-plate__label" style="font-size: 10px; background: var(--dtw-paper); inset: 14px; border: 1px solid var(--dtw-toner); text-align: left; white-space: pre; display: block; padding: 14px 16px; line-height: 1.5">CHANNELS YOU FOLLOW
+│  public RSS
+│
+│   VIDEOS YOU WATCHED
+│   │  what YouTube relates to them
+▼   ▼
+YOUR SIGNALS ── ✕ videos · channels
+│               topics · learned words
+▼
+MY FEED
+
+nothing on this plate leaves the browser</div>
+          <div class="dtw-plate__spine"><span>FIG. 1 — WHERE THE FEED COMES FROM</span></div>
+        </div>
+
+        <div class="dtw-quote rot-2" style="max-width: 320px">
+          <div class="dtw-quote__text">It is a word model, not a mind reader. Hide Minecraft and it learns <em>minecraft</em>, not <em>games like Minecraft</em>. For the rest there is the topic block.</div>
+          <div class="dtw-quote__attr">— LIMITS, STATED PLAINLY</div>
+        </div>
+
+        <div class="dtw-stamp" style="transform: rotate(-3deg)">NO ACCOUNT<br>NO SERVER</div>
+      </div>
+    </div>
+
+    <div class="dtw-pasted-box rot-3">
+      <div class="dtw-bar-heading dtw-bar-heading--typewriter" style="margin: -4px 0 10px">INSTALL · FIREFOX 140+</div>
+<pre class="dtw-typewriter pre">git clone https://github.com/h-3303/ownfeed
+# about:debugging → This Firefox → Load Temporary Add-on…
+# → pick ownfeed/manifest.json
+
+# or, with web-ext, a fresh Firefox with it loaded:
+cd ownfeed && npx web-ext run --start-url https://www.youtube.com/</pre>
+      <p class="dtw-typewriter dtw-typewriter--muted" style="font-size: 11px; margin-top: 10px">
+        A temporary add-on stays until Firefox closes. Release Firefox installs only signed add-ons for good, so a
+        permanent install means signing the zip from the <a href="https://github.com/h-3303/ownfeed/releases">releases page</a>
+        as an unlisted add-on at addons.mozilla.org. <b>Chromium browsers:</b> chrome://extensions → Developer mode →
+        Load unpacked → the cloned folder; that one persists.
+      </p>
+    </div>
+
+    <div>
+      <div class="dtw-bar-heading dtw-bar-heading--serif rot-4">What it asks for, and what it does not do.</div>
+      <ul class="facts" style="margin-top: 14px">
+        <li><span>Permissions</span><span><code>storage</code>, and access to www.youtube.com. Nothing else.</span></li>
+        <li><span>Network</span><span>Same-origin requests to youtube.com only: channel RSS, the watch-next endpoint, a channel page when you follow by handle.</span></li>
+        <li><span>Storage</span><span>The browser's extension storage. Inspect, remove or erase every item on the settings page.</span></li>
+        <li><span>Channel blocks</span><span>YouTube's tiles show a channel's name, not its id; a block made from a tile matches by name.</span></li>
+        <li><span>Not an ad blocker</span><span>It does not touch ads or playback. YouTube's own player plays the video.</span></li>
+        <li><span>When YouTube changes</span><span>Selectors follow the markup of September 2026. An end-to-end script in the repo shows which step broke.</span></li>
+      </ul>
+    </div>
+
+    <div class="dtw-sheet dtw-sheet--black black-band">
+      <div class="row" style="align-items: center; flex-wrap: wrap">
+        <div class="dtw-typewriter" style="font-size: 12px; line-height: 1.7; color: var(--dtw-paper)">
+          SOURCE · <a href="https://github.com/h-3303/ownfeed">github.com/h-3303/ownfeed</a><br>
+          RELEASES · <a href="https://github.com/h-3303/ownfeed/releases">zip for signing or unpacking</a><br>
+          LICENCE · GPL-3.0 · no build step, plain JavaScript
+        </div>
+        <span class="dtw-folio dtw-folio--on-black">v0.1.0</span>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+</body>
+</html>

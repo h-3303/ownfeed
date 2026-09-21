@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ownfeed</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Ownfeed</h1>
+      <p>Your YouTube signals, kept in this browser. Nothing here is sent anywhere; YouTube sees only ordinary signed-out page requests.</p>
+    </header>
+
+    <section>
+      <h2>Channels you follow <span class="count" id="subs-count"></span></h2>
+      <form id="sub-add" class="row">
+        <input id="sub-ref" placeholder="@handle, channel URL or UC… id" autocomplete="off" required>
+        <button>Follow</button>
+        <span class="status" id="sub-status"></span>
+      </form>
+      <ul id="subs" class="list"></ul>
+      <div class="row">
+        <label class="filebtn">Import subscriptions…<input type="file" id="subs-file" accept=".csv,.opml,.xml,.json,.db,.txt"></label>
+        <span class="hint">Google Takeout CSV, OPML, NewPipe JSON or FreeTube profiles.db</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Blocked channels <span class="count" id="channels-count"></span></h2>
+      <ul id="channels" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Blocked topics <span class="count" id="keywords-count"></span></h2>
+      <p class="hint">A word matches whole words in a title; a phrase matches the words in a row. Videos that match are never shown.</p>
+      <form id="kw-add" class="row">
+        <input id="kw" placeholder="word or phrase" autocomplete="off" required>
+        <button>Block</button>
+      </form>
+      <ul id="keywords" class="chips"></ul>
+    </section>
+
+    <section>
+      <h2>What the feed has learned</h2>
+      <p class="hint">Built from titles of videos you hid (against) and videos you watched (for). These only rank videos down or up; remove one to forget it.</p>
+      <div class="cols">
+        <div><h3>Ranked down</h3><ul id="learned-neg" class="list small"></ul></div>
+        <div><h3>Ranked up</h3><ul id="learned-pos" class="list small"></ul></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hidden videos <span class="count" id="videos-count"></span></h2>
+      <ul id="videos" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Settings</h2>
+      <label class="field">Home page
+        <select id="set-replaceHome">
+          <option value="auto">YouTube's feed if it has one, otherwise mine</option>
+          <option value="always">Open on my feed</option>
+          <option value="never">Leave YouTube's home alone</option>
+        </select>
+      </label>
+      <label class="field">Similar-to-hidden videos in YouTube's own lists (search, sidebar)
+        <select id="set-surfaces">
+          <option value="dim">Dim them</option>
+          <option value="hide">Hide them</option>
+          <option value="off">Leave them</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="set-hideShorts"> Hide Shorts</label>
+    </section>
+
+    <section>
+      <h2>Your data</h2>
+      <div class="row">
+        <button id="export">Export to file</button>
+        <label class="filebtn">Import from file…<input type="file" id="import-file" accept=".json"></label>
+        <button id="clear-history">Clear watch history <span id="history-count"></span></button>
+        <button id="reset" class="danger">Erase everything</button>
+      </div>
+      <p class="status" id="data-status"></p>
+    </section>
+  </main>
+  <script src="../core/tokens.js"></script>
+  <script src="../core/model.js"></script>
+  <script src="../core/sources.js"></script>
+  <script src="../core/rank.js"></script>
+  <script src="../core/store.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

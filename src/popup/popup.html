@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; padding: 14px 16px; width: 260px; font: 14px/1.5 system-ui, sans-serif; }
+    h1 { font-size: 15px; margin: 0 0 8px; }
+    dl { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin: 0 0 12px; font-variant-numeric: tabular-nums; }
+    dt { opacity: .7; } dd { margin: 0; text-align: right; font-weight: 600; }
+    button { width: 100%; font: inherit; padding: 7px; border-radius: 8px; border: 1px solid rgba(128,128,128,.4); background: none; color: inherit; cursor: pointer; }
+    p { margin: 10px 0 0; font-size: 12px; opacity: .65; }
+  </style>
+</head>
+<body>
+  <h1>Ownfeed</h1>
+  <dl>
+    <dt>Channels followed</dt><dd id="subs">0</dd>
+    <dt>Videos hidden</dt><dd id="videos">0</dd>
+    <dt>Channels blocked</dt><dd id="channels">0</dd>
+    <dt>Topics blocked</dt><dd id="keywords">0</dd>
+    <dt>Watched (local history)</dt><dd id="history">0</dd>
+  </dl>
+  <button id="open">Signals &amp; channels…</button>
+  <p>Hover any video on YouTube and press ✕ to hide it and teach the feed.</p>
+  <script src="../core/tokens.js"></script>
+  <script src="../core/model.js"></script>
+  <script src="../core/store.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

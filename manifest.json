@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "Ownfeed",
+  "version": "0.1.0",
+  "description": "A YouTube home feed and a working \"Not interested\" without a Google account. Everything is kept on this device.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "scripts": [
+      "src/background.js"
+    ]
+  },
+  "action": {
+    "default_title": "Ownfeed",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "exclude_matches": [
+        "https://www.youtube.com/embed/*",
+        "https://www.youtube.com/live_chat*"
+      ],
+      "css": [
+        "src/content/style.css"
+      ],
+      "js": [
+        "src/core/tokens.js",
+        "src/core/model.js",
+        "src/core/sources.js",
+        "src/core/rank.js",
+        "src/core/store.js",
+        "src/content/tiles.js",
+        "src/content/feed.js",
+        "src/content/watch.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ownfeed@h-3303",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
+}
