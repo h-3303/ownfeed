@@ -12,6 +12,7 @@ env_file="${OWNFEED_AMO_ENV:-$HOME/.config/ownfeed/amo.env}"
 [ -r "$env_file" ] || { echo "missing $env_file (see the header of this script)" >&2; exit 1; }
 set -a; . "$env_file"; set +a
 cd "$(dirname "$0")/.."
-meta=""; [ "$channel" = listed ] && meta="--amo-metadata amo-metadata.json"
+# a listed version may wait on a human reviewer; give up waiting after five minutes, the submission stands
+meta=""; [ "$channel" = listed ] && meta="--amo-metadata amo-metadata.json --approval-timeout 300000"
 exec web-ext sign --channel "$channel" $meta \
   --ignore-files test site tools package.json vercel.json amo-metadata.json README.md LICENSE

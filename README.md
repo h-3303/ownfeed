@@ -31,8 +31,9 @@ browser; the only network traffic is ordinary signed-out requests to youtube.com
 - **Firefox 140+**: open [`ownfeed-0.1.0.xpi`](https://github.com/h-3303/ownfeed/releases/download/v0.1.0/ownfeed-0.1.0.xpi) in Firefox. It is signed by Mozilla as a
   self-distributed (unlisted) add-on, so it installs permanently; it does not auto-update. From
   source: `about:debugging` → This Firefox → Load Temporary Add-on → `manifest.json`, or
-  `npm run firefox`. New versions are signed with `tools/sign.sh` (bump `version` in the manifest first;
-  AMO refuses a version number twice).
+  `npm run firefox`. New versions are signed with `tools/sign.sh unlisted|listed` (bump `version` in the manifest first;
+  AMO refuses a version number twice, across both channels). `tools/amo-status.py` shows where
+  each version stands in review.
 - **Chromium browsers**: `chrome://extensions` → Developer mode → Load unpacked → this folder.
   Chrome logs a harmless warning about `background.scripts`, which is there for Firefox.
 

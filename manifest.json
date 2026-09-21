@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ownfeed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A YouTube home feed and a working \"Not interested\" without a Google account. Everything is kept on this device.",
   "icons": {
     "16": "icons/icon-16.png",
