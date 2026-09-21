@@ -141,17 +141,15 @@ nothing on this plate leaves the browser</div>
 
     <div class="dtw-pasted-box rot-3">
       <div class="dtw-bar-heading dtw-bar-heading--typewriter" style="margin: -4px 0 10px">INSTALL · FIREFOX 140+</div>
-<pre class="dtw-typewriter pre">git clone https://github.com/h-3303/ownfeed
+<p class="dtw-body" style="font-size: 13.5px; margin: 0 0 10px"><a href="https://github.com/h-3303/ownfeed/releases/download/v0.1.0/ownfeed-0.1.0.xpi"><b>ownfeed-0.1.0.xpi</b></a> — open it in Firefox and say yes. Signed by Mozilla as a self-distributed add-on, so it stays installed.</p>
+<pre class="dtw-typewriter pre"># from source, for an evening:
+git clone https://github.com/h-3303/ownfeed
 # about:debugging → This Firefox → Load Temporary Add-on…
-# → pick ownfeed/manifest.json
-
-# or, with web-ext, a fresh Firefox with it loaded:
-cd ownfeed && npx web-ext run --start-url https://www.youtube.com/</pre>
+# → pick ownfeed/manifest.json</pre>
       <p class="dtw-typewriter dtw-typewriter--muted" style="font-size: 11px; margin-top: 10px">
-        A temporary add-on stays until Firefox closes. Release Firefox installs only signed add-ons for good, so a
-        permanent install means signing the zip from the <a href="https://github.com/h-3303/ownfeed/releases">releases page</a>
-        as an unlisted add-on at addons.mozilla.org. <b>Chromium browsers:</b> chrome://extensions → Developer mode →
-        Load unpacked → the cloned folder; that one persists.
+        It is not listed on addons.mozilla.org, so it does not update itself; new versions appear on the
+        <a href="https://github.com/h-3303/ownfeed/releases">releases page</a>. <b>Chromium browsers:</b> unpack the zip
+        from the same page, then chrome://extensions → Developer mode → Load unpacked.
       </p>
     </div>
 
@@ -171,7 +169,7 @@ cd ownfeed && npx web-ext run --start-url https://www.youtube.com/</pre>
       <div class="row" style="align-items: center; flex-wrap: wrap">
         <div class="dtw-typewriter" style="font-size: 12px; line-height: 1.7; color: var(--dtw-paper)">
           SOURCE · <a href="https://github.com/h-3303/ownfeed">github.com/h-3303/ownfeed</a><br>
-          RELEASES · <a href="https://github.com/h-3303/ownfeed/releases">zip for signing or unpacking</a><br>
+          RELEASES · <a href="https://github.com/h-3303/ownfeed/releases">signed .xpi for Firefox, zip for Chromium</a><br>
           LICENCE · GPL-3.0 · no build step, plain JavaScript
         </div>
         <span class="dtw-folio dtw-folio--on-black">v0.1.0</span>

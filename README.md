@@ -26,11 +26,13 @@ browser; the only network traffic is ordinary signed-out requests to youtube.com
 - **Settings page**: every hidden video, blocked channel, blocked topic and learned word, each
   removable; export / import as one JSON file; erase everything.
 
-## Install (unpacked)
+## Install
 
-- **Firefox 140+**: `about:debugging` → This Firefox → Load Temporary Add-on → pick `manifest.json`.
-  Or `npm run firefox` (needs `web-ext`). A temporary add-on is removed when Firefox closes; for a
-  permanent install, sign the build from `npm run build` at addons.mozilla.org (unlisted).
+- **Firefox 140+**: open [`ownfeed-0.1.0.xpi`](https://github.com/h-3303/ownfeed/releases/download/v0.1.0/ownfeed-0.1.0.xpi) in Firefox. It is signed by Mozilla as a
+  self-distributed (unlisted) add-on, so it installs permanently; it does not auto-update. From
+  source: `about:debugging` → This Firefox → Load Temporary Add-on → `manifest.json`, or
+  `npm run firefox`. New versions are signed with `tools/sign.sh` (bump `version` in the manifest first;
+  AMO refuses a version number twice).
 - **Chromium browsers**: `chrome://extensions` → Developer mode → Load unpacked → this folder.
   Chrome logs a harmless warning about `background.scripts`, which is there for Firefox.
 
