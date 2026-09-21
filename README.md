@@ -1,5 +1,7 @@
 # Ownfeed
 
+**https://ownfeed-sable.vercel.app** · GPL-3.0
+
 A browser extension that gives signed-out YouTube a home feed you can shape, and a "Not interested"
 that sticks — with no Google account. Everything it knows is kept in the extension's storage in this
 browser; the only network traffic is ordinary signed-out requests to youtube.com.
