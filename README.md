@@ -68,3 +68,7 @@ test/          node --test units against saved YouTube responses; e2e/flow.mjs d
 
 GPL-3.0. The page in `site/` (deployed by Vercel from `vercel.json`) uses the Death to the World
 design system's stylesheet and fonts, copied in from its `dist/`.
+
+---
+
+Built by [Moirai Digital](https://www.moiraidigital.com).
